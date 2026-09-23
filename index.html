@@ -7,111 +7,126 @@
   <meta name="description" content="Sign in through Steam, pick your friends, and see every multiplayer game you all own.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar__inner wrap">
+  <header class="appbar">
+    <div class="wrap appbar__inner">
       <a class="brand" href="#top">
-        <span class="brand__name">Steam Selector</span>
+        <span class="brand__text">
+          <span class="brand__name">Steam Selector</span>
+          <span class="brand__sub">What are we playing tonight?</span>
+        </span>
       </a>
-      <nav class="nav">
+      <nav class="appbar__nav">
         <a href="#how">How it works</a>
+        <a href="https://steam-selector.vercel.app/">Open the app →</a>
       </nav>
-      <a class="btn btn--primary btn--sm" href="https://steam-selector.vercel.app/">Open the app</a>
     </div>
   </header>
 
   <main id="top">
 
-    <section class="hero wrap">
-      <p class="eyebrow">For groups who spend longer picking than playing</p>
-      <h1 class="hero__title">Find games<br><em>everyone</em> wants to play</h1>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="https://steam-selector.vercel.app/">Sign in through Steam</a>
-        <a class="btn btn--quiet" href="#how">See how it works</a>
-      </div>
+    <section class="masthead">
+      <div class="wrap masthead__inner">
+        <div class="masthead__copy">
+          <h1>Find the games your whole group owns</h1>
+          <p class="lede">Sign in through Steam, pick who's playing, and get every multiplayer game you all have in common. Still can't decide? Roll for it.</p>
+          <div class="masthead__actions">
+            <a class="btn btn--steam" href="https://steam-selector.vercel.app/">Sign in through Steam</a>
+            <a class="textlink" href="#how">or see how it works ↓</a>
+          </div>
+        </div>
 
-      <figure class="shot shot--hero reveal">
-        <div class="shot__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
-        <img src="Images/common-games.png" alt="The results screen listing thirteen multiplayer games shared across three players." width="1903" height="941">
-      </figure>
+        <div class="reel" aria-hidden="true">
+          <div class="reel__window">
+            <div class="reel__strip">
+              <img src="Images/covers/apex-legends.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/borderlands-2.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/castle-crashers.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/dont-starve-together.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/elden-ring.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/europa-universalis-iv.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/garrys-mod.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/project-zomboid.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/apex-legends.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/borderlands-2.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/castle-crashers.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/dont-starve-together.jpg" alt="" width="291" height="136">
+              <img src="Images/covers/elden-ring.jpg" alt="" width="291" height="136">
+            </div>
+            <div class="reel__frame"></div>
+          </div>
+          <p class="reel__caption">Castle Crashers®</p>
+        </div>
+      </div>
     </section>
 
-    <section class="steps wrap" id="how">
-      <article class="step step--stacked reveal">
-        <div class="step__copy">
-          <h3>Select who's playing</h3>
-          <p>Your Steam friends load automatically, you just need to select who's joining you.</p>
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-title">How it works</h2>
+          <p>Four screens, no setup. Your friends list and libraries come straight from Steam.</p>
         </div>
-        <div class="shot-pair">
-          <figure class="shot">
-            <img src="Images/friends.png" alt="A grid of Steam friends, each with an avatar and username, ready to be selected." loading="lazy">
+
+        <div class="tour">
+          <div class="tour__steps" role="tablist" aria-label="App screens">
+            <button class="tile" role="tab" type="button" id="tab-friends" aria-controls="tour-panel" aria-selected="true" data-src="Images/friends-selected.png" data-alt="A grid of Steam friends with Catvenom and Knight of Judgement highlighted, and a button reading Find common games, 2 selected.">
+              <span class="tile__num">1</span>
+              <span class="tile__text">
+                <strong>Pick who's playing</strong>
+                <span>Your Steam friends load automatically. Click the ones joining you.</span>
+              </span>
+            </button>
+            <button class="tile" role="tab" type="button" id="tab-common" aria-controls="tour-panel" aria-selected="false" tabindex="-1" data-src="Images/common-games.png" data-alt="Common Multiplayer Games: 13 games across 3 players, with cover art for Apex Legends, Borderlands 2, Castle Crashers and more.">
+              <span class="tile__num">2</span>
+              <span class="tile__text">
+                <strong>See what you all own</strong>
+                <span>Every multiplayer game shared by the whole group, with a header showing exactly who's counted.</span>
+              </span>
+            </button>
+            <button class="tile" role="tab" type="button" id="tab-random" aria-controls="tour-panel" aria-selected="false" tabindex="-1" data-src="Images/random-pick.png" data-alt="The random picker having chosen Borderlands 2, shown large above the full games list.">
+              <span class="tile__num">3</span>
+              <span class="tile__text">
+                <strong>Let the dice decide</strong>
+                <span>One click picks for you, weighted by how everyone rated their library.</span>
+              </span>
+            </button>
+            <button class="tile" role="tab" type="button" id="tab-library" aria-controls="tour-panel" aria-selected="false" tabindex="-1" data-src="Images/library.png" data-alt="My Library screen showing games with Love, Like, Dislike and Hate rating buttons.">
+              <span class="tile__num">4</span>
+              <span class="tile__text">
+                <strong>Rate your library</strong>
+                <span>Love, Like, Dislike or Hate. Your ratings steer the dice every time you play together.</span>
+              </span>
+            </button>
+          </div>
+
+          <figure class="tour__screen" id="tour-panel" role="tabpanel" aria-labelledby="tab-friends">
+            <img id="tour-img" src="Images/friends-selected.png" alt="A grid of Steam friends with Catvenom and Knight of Judgement highlighted, and a button reading Find common games, 2 selected." width="1905" height="938">
           </figure>
-          <figure class="shot">
-            <img src="Images/friends-selected.png" alt="Two friends highlighted in blue, with the button reading Find common games, 2 selected." loading="lazy">
-          </figure>
         </div>
-      </article>
-
-      <article class="step step--flip reveal">
-        <div class="step__copy">
-          <h3>See your shared games</h3>
-          <p>Every multiplayer game shared by the whole group, with cover art and a header showing exactly who's counted in the result.</p>
-        </div>
-        <figure class="shot">
-          <img src="Images/common-games.png" alt="Common Multiplayer Games results with cover art for Apex Legends, Borderlands 2, Castle Crashers and more." loading="lazy">
-        </figure>
-      </article>
-
-      <article class="step step--flip reveal">
-        <div class="step__copy">
-          <h3>Or let the dice decide</h3>
-          <p>Hit <strong>Pick a random game</strong> and it chooses for you, weighted by how everyone rated their library.</p>
-        </div>
-        <figure class="shot">
-          <img src="Images/random-pick.png" alt="The random picker having chosen Borderlands 2, shown large above the full games list." loading="lazy">
-        </figure>
-      </article>
-    </section>
-
-    <section class="library wrap" id="library">
-      <div class="library__copy">
-        <h2 class="section-title section-title--tight">Love it, like it, or never again</h2>
-        <p>Go through your library and mark how you feel about each game. Your ratings determine how likely a game is to be randomly selected. Loved and liked games will come up more often, hated games will never be selected.</p>
       </div>
-      <figure class="shot reveal">
-        <img src="Images/library.png" alt="My Library screen showing games with Love, Like, Dislike and Hate rating buttons." loading="lazy">
-      </figure>
     </section>
 
     <section class="closer wrap">
-      <h2>Stop scrolling. Start playing.</h2>
-      <a class="btn btn--primary btn--lg" href="https://steam-selector.vercel.app/">Sign in through Steam</a>
+      <div class="closer__box">
+        <h2>Tonight's game is already in your libraries</h2>
+        <p>Sign in, pick your friends, and find it.</p>
+        <a class="btn btn--steam btn--wide" href="https://steam-selector.vercel.app/">Sign in through Steam</a>
+      </div>
     </section>
 
   </main>
 
-  <footer class="footer wrap">
-    <p>Steam Selector is a personal project. Not affiliated with Valve Corporation.</p>
+  <footer class="footer">
+    <div class="wrap">
+      <p>Steam Selector is a personal project. Not affiliated with Valve Corporation.</p>
+    </div>
   </footer>
 
-  <script>
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
